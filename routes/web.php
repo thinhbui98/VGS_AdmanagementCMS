@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::any('/', function () {
+        return redirect('admin/login');
+    });
+    Route::any('login', [AuthController::class, 'login']);
+
+    Route::resource('user', UserController::class);
+
+    // Route::get('index', [AdminController::class, 'index']);
+
+    // Route::any('store', [AdminController::class, 'store']);
+
+    // Route::put('show/{id}', [AdminController::class, 'show']);
+
+    // Route::delete('destroy/{id}', [AdminController::class, 'destroy']);
 });
