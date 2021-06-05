@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admanagement\AdHomeController;
+use App\Http\Controllers\Admanagement\AdLogoController;
+use App\Http\Controllers\Admanagement\AdNewsController;
+use App\Http\Controllers\Admanagement\AdScorecardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,19 +23,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->group(function () {
+Route::match(['get', 'post'], 'login', [AuthController::class, 'login']);
+
+Route::get('logout', [AuthController::class, 'logout']);
+
+Route::group(['prefix' => 'cms','middleware' => 'auth'], function () {
     Route::any('/', function () {
-        return redirect('admin/login');
+        return redirect('login');
     });
-    Route::any('login', [AuthController::class, 'login']);
 
     Route::resource('user', UserController::class);
 
-    // Route::get('index', [AdminController::class, 'index']);
+    Route::resource('adhome', AdHomeController::class);
 
-    // Route::any('store', [AdminController::class, 'store']);
+    Route::resource('adlogo', AdLogoController::class);
 
-    // Route::put('show/{id}', [AdminController::class, 'show']);
+    Route::resource('adnews', AdNewsController::class);
 
-    // Route::delete('destroy/{id}', [AdminController::class, 'destroy']);
+    Route::resource('adscorecard', AdScorecardController::class);
+
 });

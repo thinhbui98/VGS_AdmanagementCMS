@@ -10,11 +10,21 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only(['email', 'password']);
-        if (Auth::attempt($credentials)) {
-            return redirect('admin/index');
+        if ($request->isMethod('POST')) {
+            $credentials = $request->only(['email', 'password']);
+            if (Auth::attempt($credentials)) {
+                return redirect('cms/user');
+            }
+            $message = 'Wrong username or password';
+            return view('auth.login')->with('errors', $message);
         }
-        $message = 'Wrong username or password';
-        return view('auth.login')->with('errors', $message);
+        return view('auth.login');
+    }
+
+    public function logout()
+    {
+        dd(Auth::user());
+        Auth::logout();
+        return redirect('login');
     }
 }
