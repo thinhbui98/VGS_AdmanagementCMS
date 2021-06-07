@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnUsersTable extends Migration
+class AddColumnRoleIdUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddColumnUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('image')->after('password')->nullable();
-            $table->tinyInteger('status')->after('remember_token')->default(0);
+            $table->bigInteger('role_id')->after('remember_token');
         });
     }
 
@@ -27,8 +26,7 @@ class AddColumnUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('image');
-            $table->dropColumn('status');
+            $table->dropColumn('role_id');
         });
     }
 }

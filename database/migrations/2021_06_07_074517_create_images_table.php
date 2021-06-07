@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdLogoTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateAdLogoTable extends Migration
      */
     public function up()
     {
-        Schema::create('ad_logo', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('link');
-            $table->tinyInteger('type');
-            $table->tinyInteger('show');
-            $table->bigInteger('image');
+            $table->string('image');
+            $table->string('type');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -32,6 +30,6 @@ class CreateAdLogoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ad_logo');
+        Schema::dropIfExists('images');
     }
 }

@@ -27,8 +27,11 @@
     <link href="{{ asset('assets/css/lib/weather-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/lib/menubar/sidebar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/lib/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/lib/sweetalert/sweetalert.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/lib/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/jquery.nanoscroller.min.js') }}"></script>
 </head>
 
 <body>
@@ -108,8 +111,7 @@
     </div>
 
     <!-- jquery vendor -->
-    <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/jquery.nanoscroller.min.js') }}"></script>
+    
     <!-- nano scroller -->
     <script src="{{ asset('assets/js/lib/menubar/sidebar.js') }}"></script>
     <script src="{{ asset('assets/js/lib/preloader/pace.min.js') }}"></script>
@@ -119,11 +121,11 @@
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <!-- bootstrap -->
 
+    <script src="{{ asset('assets/js/lib/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/sweetalert/sweetalert.init.js') }}"></script>
     <script src="{{ asset('assets/js/lib/calendar-2/moment.latest.min.js') }}"></script>
     <script src="{{ asset('assets/js/lib/calendar-2/pignose.calendar.min.js') }}"></script>
     <script src="{{ asset('assets/js/lib/calendar-2/pignose.init.js') }}"></script>
-
-
     <script src="{{ asset('assets/js/lib/weather/jquery.simpleWeather.min.js') }}"></script>
     <script src="{{ asset('assets/js/lib/weather/weather-init.js') }}"></script>
     <script src="{{ asset('assets/js/lib/circle-progress/circle-progress.min.js') }}"></script>

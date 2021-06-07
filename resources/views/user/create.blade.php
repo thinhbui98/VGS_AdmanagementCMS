@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalStoreUser">
+<div class="modal fade" id="modalCreateUser">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-form">
             <div class="modal-header">
@@ -28,7 +28,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Password</label>
-                                                    <input class="form-control" type="password" placeholder="••••••••">
+                                                    <input class="form-control" type="password" name="password" placeholder="••••••••">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Phone</label>
@@ -37,11 +37,9 @@
                                                 <div class="form-group">
                                                     <label>Role</label>
                                                     <select class="form-control" name="role">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
+                                                        @foreach ($listRole as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -53,7 +51,6 @@
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-success">Save</button>
-                                        <button type="reset" class="btn btn-secondary">Reset</button>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     </form>
                                 </div>
