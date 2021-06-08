@@ -14,7 +14,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-elements">
-                                    <form action="" method="POST">
+                                    <form enctype="multipart/form-data" action="" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
@@ -47,7 +47,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Image</label>
-                                                    <input class="form-control" type="file">
+                                                    <input class="form-control" type="file" name="image">
                                                 </div>
                                             </div>
                                         </div>

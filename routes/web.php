@@ -28,11 +28,13 @@ Route::match(['get', 'post'], 'login', [AuthController::class, 'login']);
 Route::get('logout', [AuthController::class, 'logout']);
 
 Route::group(['prefix' => 'cms','middleware' => 'auth'], function () {
-    Route::any('/', function () {
-        return redirect('login');
-    });
+    // Route::any('/', function () {
+    //     return redirect('login');
+    // });
 
     Route::resource('user', UserController::class);
+
+    Route::get('user/delete/{user}', [UserController::class, 'delete']);
 
     Route::resource('adhome', AdHomeController::class);
 

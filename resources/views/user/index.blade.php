@@ -50,8 +50,9 @@
                                             {{-- <a href="http://" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
                                             <button type="button" class="edit-user btn btn-info" data-toggle="modal" data-target="#modalEditUser" data="{{ $item }}"><i class="fa fa-edit"></i></button>
                                             <a href="http://" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                                            {{-- <a href="http://" class="btn btn-danger"><i class="fa fa-trash"></i></a> --}}
-                                            <button type="button" class="btn btn-danger btn sweet-confirm"><i class="fa fa-trash"></i></button>
+                                            <a href="{{ url('cms/user/delete/' . $item->id) }}" class="btn btn-danger">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
