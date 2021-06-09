@@ -46,7 +46,13 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Image</label>
-                                                    <input class="form-control" type="file" name="image">
+                                                    <input class="form-control image" type="file"  name="image">
+                                                </div>
+                                                <div class="form-group">
+                                                    <img class="previewImg" src="{{ asset('assets/images/user.jpg') }}" style="width: 200px;height: 200px;margin-bottom: 10px">
+                                                    <div>
+                                                        <button type="button" class="btn btn-danger deleteImg">Delete</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,3 +68,19 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('.image').change(function (e) {
+            $('.previewImg').attr('src', URL.createObjectURL(event.target.files[0]));
+        });
+        $('.deleteImg').click(function (e) {
+            removeImg();
+        });
+        $('button[data-dismiss="modal"]').click(function (e) {
+            removeImg();
+        });
+        function removeImg() {
+            $('.previewImg').attr('src', window.location.origin + '/assets/images/user.jpg');
+        }
+    });
+</script>

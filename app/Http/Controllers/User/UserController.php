@@ -18,11 +18,6 @@ class UserController extends Controller
         return view('user.index')->with(['listUser' => $listUser, 'listRole' => $listRole]);
     }
 
-    public function show(Request $request)
-    {
-        # code...
-    }
-
     public function store(Request $request)
     {
         $inputUser = [
@@ -66,7 +61,7 @@ class UserController extends Controller
 
     public function update($user, Request $request)
     {
-        # code...
+        dd($request);
     }
 
     public function destroy($user, Request $request)
@@ -79,7 +74,7 @@ class UserController extends Controller
         $findUser = User::find($user);
         if ($findUser) {
             $deleteUser = User::destroy($user);
-            
+            return redirect('cms/user');
         }
     }
 }

@@ -25,11 +25,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input class="form-control" type="email" id="email" name="email" placeholder="admin@mail.com">
+                                                    <input class="form-control" type="email" id="email" name="input_email" placeholder="admin@mail.com">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Password</label>
-                                                    <input class="form-control" type="password" value="" placeholder="••••••••">
+                                                    <input class="form-control" type="password" id="password" name="input_password" value="" placeholder="••••••••">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Phone</label>
@@ -47,7 +47,13 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Image</label>
-                                                    <input class="form-control" type="file" name="image">
+                                                    <input class="form-control image" type="file"  name="image">
+                                                </div>
+                                                <div class="form-group">
+                                                    <img class="previewImg" src="{{ asset('assets/images/user.jpg') }}" style="width: 200px;height: 200px;margin-bottom: 10px">
+                                                    <div>
+                                                        <button type="button" class="btn btn-danger deleteImg">Delete</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,6 +71,12 @@
 </div>
 <script>
     $(document).ready(function(){
+        $('.image').change(function (e) {
+            $('.previewImg').attr('src', URL.createObjectURL(event.target.files[0]));
+        });
+        $('.deleteImg').click(function (e) {
+            $('.previewImg').attr('src', window.location.origin + '/assets/images/user.jpg');
+        });
         $('.edit-user').click(function (e) {
             var dataUser = JSON.parse($(this).attr('data'));
             var action = window.location.pathname + '/' + dataUser.id;
@@ -76,6 +88,7 @@
         });
         $('button[data-dismiss="modal"]').click(function (e) { 
             $('#role option').removeAttr('selected');
+            $('.previewImg').attr('src', window.location.origin + '/assets/images/user.jpg');
         });
     });
 </script>

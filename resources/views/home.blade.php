@@ -26,12 +26,36 @@
     <link href="{{ asset('assets/css/lib/owl.theme.default.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/lib/weather-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/lib/menubar/sidebar.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/lib/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/lib/sweetalert/sweetalert.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/lib/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <!-- jquery vendor -->
     <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/lib/jquery.nanoscroller.min.js') }}"></script>
+    <!-- nano scroller -->
+    <script src="{{ asset('assets/js/lib/menubar/sidebar.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/preloader/pace.min.js') }}"></script>
+    <!-- sidebar -->
+    <script src="{{ asset('assets/js/lib/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <!-- bootstrap -->
+    <script src="{{ asset('assets/js/lib/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/sweetalert/sweetalert.init.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/calendar-2/moment.latest.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/calendar-2/pignose.calendar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/calendar-2/pignose.init.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/weather/jquery.simpleWeather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/weather/weather-init.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/circle-progress/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/circle-progress/circle-progress-init.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/chartist/chartist.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/sparklinechart/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/sparklinechart/sparkline.init.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
+    <!-- scripit init-->
+    <script src="{{ asset('assets/js/dashboard2.js') }}"></script>
 </head>
 
 <body>
@@ -42,7 +66,8 @@
                 <ul>
                     <div class="logo">
                         <a href="index.html">
-                            <img src="{{ asset('assets/images/logo.png') }}" alt="" /> <span>Focus</span>
+                            {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="" /> --}}
+                            <span>Focus</span>
                         </a>
                     </div>
                     <li class="label">Quán lý quảng cáo</li>
@@ -70,31 +95,15 @@
                         </div>
                     </div>
                     <div class="float-right">
-                        <div class="dropdown dib">
-                            <div class="header-icon" data-toggle="dropdown">
-                                <span class="user-avatar">{{ Auth::user()->name }}
-                                    <i class="ti-angle-down f-s-10"></i>
-                                </span>
-                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-user"></i>
-                                                    <span>Profile</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url('logout') }}">
-                                                    <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-outline dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="true">
+                                {{ Auth::user()->name }}
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#1"><i class="ti-user"></i> Profile</a></li>
+                                <li><a href="{{ url('logout') }}"><i class="ti-power-off"></i> Logout</a></li>
+                            </ul>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -109,34 +118,6 @@
             </div>
         </div>
     </div>
-
-    <!-- jquery vendor -->
-    
-    <!-- nano scroller -->
-    <script src="{{ asset('assets/js/lib/menubar/sidebar.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/preloader/pace.min.js') }}"></script>
-    <!-- sidebar -->
-
-    <script src="{{ asset('assets/js/lib/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
-    <!-- bootstrap -->
-
-    <script src="{{ asset('assets/js/lib/sweetalert/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/sweetalert/sweetalert.init.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/calendar-2/moment.latest.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/calendar-2/pignose.calendar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/calendar-2/pignose.init.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/weather/jquery.simpleWeather.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/weather/weather-init.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/circle-progress/circle-progress.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/circle-progress/circle-progress-init.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/chartist/chartist.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/sparklinechart/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/sparklinechart/sparkline.init.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
-    <!-- scripit init-->
-    <script src="{{ asset('assets/js/dashboard2.js') }}"></script>
 </body>
 
 </html>

@@ -7,10 +7,10 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-title"><h4>Danh sách tài khoản</h4></div>
-                <div style="display: inline-block;">
+                <div>
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalCreateUser"><i class="fa fa-plus"></i> Thêm tài khoản</button>
                 </div>
-                <input type="text" class="form-control col-lg-6" placeholder="Tìm kiếm">
+                {{-- <input type="text" class="form-control col-lg-6" placeholder="Tìm kiếm"> --}}
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover">
@@ -43,16 +43,13 @@
                                             @if ($item->status == 0)
                                                 <span class="badge badge-success">Active</span>
                                             @else
-                                                <span class="badge badge-danger">Offline</span>
+                                                <span class="badge badge-secondary">Offline</span>
                                             @endif
                                         </td>
                                         <td>
                                             {{-- <a href="http://" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
                                             <button type="button" class="edit-user btn btn-info" data-toggle="modal" data-target="#modalEditUser" data="{{ $item }}"><i class="fa fa-edit"></i></button>
-                                            <a href="http://" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                                            <a href="{{ url('cms/user/delete/' . $item->id) }}" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                            <a href="{{ url('cms/user/delete/' . $item->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
