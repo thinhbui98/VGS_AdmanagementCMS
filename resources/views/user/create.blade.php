@@ -51,7 +51,7 @@
                                                 <div class="form-group">
                                                     <img class="previewImg" src="{{ asset('assets/images/user.jpg') }}" style="width: 200px;height: 200px;margin-bottom: 10px">
                                                     <div>
-                                                        <button type="button" class="btn btn-danger deleteImg">Delete</button>
+                                                        <button type="button" class="btn btn-danger deleteImg">Delete Image</button>
                                                     </div>
                                                 </div>
                                             </div>

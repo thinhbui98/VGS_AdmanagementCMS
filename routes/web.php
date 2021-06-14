@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::match(['get', 'post'], 'login', [AuthController::class, 'login']);
+Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('login');
 
 Route::get('logout', [AuthController::class, 'logout']);
 
